@@ -8,6 +8,7 @@
 
     --body-color: #FFFFFF;
     --background-color: #DDD;
+    --post-information-color: #777777;
 
     --headers-color: #7695EC;
 }
@@ -17,7 +18,6 @@ body {
     justify-content: center;
 
     width: 100vw;
-
 
     background-color: var(--background-color);
 }

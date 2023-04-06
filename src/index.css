@@ -7,10 +7,17 @@
     --font-black: #000000;
 
     --body-color: #FFFFFF;
+    --background-color: #DDD;
 
     --headers-color: #7695EC;
 }
 
 body {
+    display: flex;
+    justify-content: center;
+
     width: 100vw;
+
+
+    background-color: var(--background-color);
 }

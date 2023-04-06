@@ -1,0 +1,85 @@
+.container-sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    background-color: #DDDDDD;
+}
+
+.modal-sign-up {
+    display: flex;
+    flex-direction: column;
+
+    height: 205px;
+    width: 500px;
+    border-radius: 16px;
+    border: 1px solid #CCCCCC;
+
+    background-color: var(--body-color);
+}
+
+.modal-sign-up>p {
+    margin: 24px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.form-sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 100px;
+    width: 450px;
+    margin: 0 24px;
+    padding: 2px;
+}
+
+.form-sign-up>span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.form-sign-up>input {
+    all: unset;
+
+    height: 32px;
+    width: auto;
+    padding-left: 11.2px;
+    margin-top: 8px;
+
+    border-radius: 8px;
+    border-bottom: 16px;
+    border: 1px solid #777777;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.form-sign-up>input::placeholder {
+    color: #b6b6b6;
+}
+
+.form-sign-up>input:focus {
+    border: 1px solid #3d3d3d;
+    box-shadow: 1px 1px 1px 1px rgb(216, 216, 216);
+}
+
+.form-sign-up>button {
+    margin-top: 16px;
+    align-self: flex-end;
+}

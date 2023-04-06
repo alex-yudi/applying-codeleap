@@ -1,0 +1,16 @@
+:root {
+    --btn-input: #7695EC;
+    --btn-delete: #FF5151;
+    --btn-cancel: #FFFFFF;
+
+    --font-white: #FFFFFF;
+    --font-black: #000000;
+
+    --body-color: #FFFFFF;
+
+    --headers-color: #7695EC;
+}
+
+body {
+    width: 100vw;
+}

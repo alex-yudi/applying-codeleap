@@ -5,6 +5,11 @@ button {
     width: 120px;
     border-radius: 8px;
 
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+
     text-align: center;
     cursor: pointer;
 }
@@ -14,11 +19,17 @@ button:hover {
 }
 
 .input {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 19px;
-    letter-spacing: 0em;
-
     background-color: var(--btn-input);
     color: var(--font-white);
+}
+
+.delete {
+    background-color: var(--btn-delete);
+    color: var(--font-white);
+}
+
+.cancel {
+    background-color: var(--btn-cancel);
+    color: var(--font-black);
+    border: 1px solid #999999
 }

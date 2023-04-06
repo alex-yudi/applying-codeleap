@@ -1,0 +1,28 @@
+.container-modal-delete {
+    min-height: 100vh;
+
+    overflow: scroll;
+}
+
+.delete-message-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding: 24px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.container-btn-delete-modal {
+    margin-top: 40px;
+    align-self: flex-end;
+}
+
+.container-btn-delete-modal button:first-child {
+    margin-right: 16px;
+}

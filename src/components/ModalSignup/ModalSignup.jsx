@@ -5,26 +5,21 @@ import { useEffect } from 'react'
 
 function ModalSignup() {
     const {
-        userSignup, setUserSignup,
+        username, setUsername,
         setButtonActive,
         setUserIsLogged
     } = useUser()
 
     const handleOnChange = ({ target }) => {
-        setUserSignup(target.value)
-        if (userSignup.length !== 0) {
-            return setButtonActive('active')
-        } else {
-            return setButtonActive('disabled')
+        setUsername(target.value)
+        if ((target.value).length !== 0) {
+            setButtonActive('active')
         }
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!userSignup || userSignup.length === 0) {
-            return
-        }
-        localStorage.setItem('userLogged', userSignup)
+        localStorage.setItem('userLogged', username)
         setUserIsLogged(true)
     }
 
@@ -46,9 +41,10 @@ function ModalSignup() {
                 >
                     <span>Please enter your name</span>
                     <input
+                        name="name"
                         type="text"
                         placeholder='John doe'
-                        value={userSignup}
+                        value={username}
                         onChange={handleOnChange}
                     />
                     <Button

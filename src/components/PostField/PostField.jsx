@@ -12,7 +12,7 @@ import useUser from '../../hooks/useUser'
 
 function PostField({ postData }) {
     const {
-        userSignup,
+        username,
         setButtonActive,
         setPostSelected,
         setOpenTrash,
@@ -52,7 +52,7 @@ function PostField({ postData }) {
                         {postData.title}
                     </p>
                     {
-                        userSignup === postData.username &&
+                        username === postData.username &&
                         <div className='interactive-icons'>
                             <img
                                 src={trashImg}

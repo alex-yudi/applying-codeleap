@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function useUserProvider() {
     const [userIsLogged, setUserIsLogged] = useState(false)
-    const [userSignup, setUserSignup] = useState('')
+    const [username, setUsername] = useState("")
     const [buttonActive, setButtonActive] = useState('disabled')
     const [postsList, setPostsList] = useState([])
     const [postContent, setPostContent] = useState({ title: '', content: '' })
@@ -12,13 +12,13 @@ function useUserProvider() {
 
     return {
         userIsLogged, setUserIsLogged,
-        userSignup, setUserSignup,
+        username, setUsername,
         buttonActive, setButtonActive,
         postsList, setPostsList,
         postContent, setPostContent,
         postSelected, setPostSelected,
         openTrash, setOpenTrash,
-        openModify, setOpenModify
+        openModify, setOpenModify,
     }
 }
 

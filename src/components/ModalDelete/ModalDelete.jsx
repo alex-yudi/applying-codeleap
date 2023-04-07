@@ -22,7 +22,7 @@ const style = {
 };
 
 export default function ModalDelete() {
-    const { openTrash, setOpenTrash, postSelected } = useUser()
+    const { openTrash, setOpenTrash, postSelected, setButtonActive } = useUser()
 
     const handleClose = () => {
         setOpenTrash(false)
@@ -37,7 +37,7 @@ export default function ModalDelete() {
     return (
         <div>
             <Modal
-                className='container-modal-delete'
+                className='container-modal-delete-post'
                 open={openTrash}
                 onClose={handleClose}
             >

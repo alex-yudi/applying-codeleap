@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { codeLeap } from '../../connections/codeLeap'
 
 function Main() {
-  const { userIsLogged, postsList, setPostsList, setUserSignup } = useUser()
+  const { userIsLogged, postsList, setPostsList, setUsername } = useUser()
 
   const getCodeLeap = async (pageNumber) => {
     const response = await codeLeap.get('/')
@@ -19,7 +19,7 @@ function Main() {
 
 
   const setUserLogged = () => {
-    setUserSignup(localStorage.getItem('userLogged'))
+    setUsername(localStorage.getItem('userLogged'))
   }
 
 

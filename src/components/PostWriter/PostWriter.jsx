@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 function PostWriter() {
     const {
-        userSignup,
+        username,
         postContent, setPostContent,
         setButtonActive,
         setPostsList
@@ -26,7 +26,7 @@ function PostWriter() {
     const submitNewPost = async () => {
         try {
             await codeLeap.post('/', {
-                username: userSignup,
+                username: username,
                 ...postContent
             })
         } catch (error) {
@@ -42,6 +42,7 @@ function PostWriter() {
     const handleSubmit = (event) => {
         event.preventDefault()
         submitNewPost()
+        setPostContent({ title: '', content: '' })
         setButtonActive('disabled')
         getNewListOfPosts()
     }
@@ -61,6 +62,7 @@ function PostWriter() {
                     name="title"
                     type="text"
                     placeholder='Hello world'
+                    value={postContent.title}
                     onChange={handleOnChange}
                 />
 
@@ -73,6 +75,7 @@ function PostWriter() {
                     rows="4"
                     cols="50"
                     placeholder='Content here'
+                    value={postContent.content}
                     onChange={handleOnChange}
                 ></textarea>
 

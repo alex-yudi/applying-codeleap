@@ -1,3 +1,7 @@
+.container-modal-edit-post {
+    background-color: #777777;
+}
+
 .modal-edit-post:focus-visible {
     outline: none;
 }

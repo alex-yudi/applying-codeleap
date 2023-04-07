@@ -59,6 +59,7 @@ export default function ModalEditPost() {
     return (
         <div>
             <Modal
+                className='container-modal-edit-post '
                 open={openModify}
                 onClose={handleClose}
             >

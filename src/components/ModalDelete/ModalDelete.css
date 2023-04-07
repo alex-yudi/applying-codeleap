@@ -1,7 +1,5 @@
-.container-modal-delete {
-    min-height: 100vh;
-
-    overflow: scroll;
+.container-modal-delete-post {
+    background-color: #777777;
 }
 
 .delete-message-modal {

@@ -14,6 +14,19 @@ function PostField({ postData }) {
     const [openTrash, setOpenTrash] = useState(false);
     const [openModify, setOpenModify] = useState(false);
 
+    const getTimeFromPost = (datetimePost) => {
+        const past = new Date(datetimePost)
+        const now = new Date()
+
+        const diff = Math.abs(now.getTime() - past.getTime())
+
+        const time = Math.ceil(diff / (1000 * 60));
+        if (time > 60) {
+            return `${Math.ceil(time / 60)} hours ago`
+        }
+        return `${time} minutes ago`
+    }
+
     return (
         <>
             <div className='container-post-field'>
@@ -37,7 +50,7 @@ function PostField({ postData }) {
                 <div className='post-body'>
                     <div className='post-body-information'>
                         <p>@{postData.username}</p>
-                        <p>25 minutes ago</p>
+                        <p>{getTimeFromPost(postData.created_datetime)}</p>
                     </div>
                     <div className='post-body-content'>
                         {postData.content}

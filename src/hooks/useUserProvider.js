@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function useUserProvider() {
     const [userIsLogged, setUserIsLogged] = useState(false)
-    const [username, setUsername] = useState("")
+    const [username, setUsername] = useState('')
     const [buttonActive, setButtonActive] = useState('disabled')
     const [postsList, setPostsList] = useState([])
     const [postContent, setPostContent] = useState({ title: '', content: '' })

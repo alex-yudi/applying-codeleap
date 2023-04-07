@@ -1,17 +1,20 @@
 import './ModalSignup.css'
 import Button from '../Button/Button'
 import useUser from '../../hooks/useUser'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+
 
 function ModalSignup() {
+    const [localUsername, setLocalUsername] = useState('')
     const {
-        username, setUsername,
+        setUsername,
         setButtonActive,
         setUserIsLogged
     } = useUser()
 
     const handleOnChange = ({ target }) => {
-        setUsername(target.value)
+        setLocalUsername(target.value)
         if ((target.value).length !== 0) {
             setButtonActive('active')
         }
@@ -19,7 +22,11 @@ function ModalSignup() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        localStorage.setItem('userLogged', username)
+        if (localUsername === null) {
+            return
+        }
+        localStorage.setItem('userLogged', localUsername)
+        setUsername(localUsername)
         setUserIsLogged(true)
     }
 
@@ -39,12 +46,15 @@ function ModalSignup() {
                     className='form-sign-up'
                     onSubmit={handleSubmit}
                 >
-                    <span>Please enter your name</span>
+                    <label htmlFor="name">
+                        <span>Please enter your name</span>
+                    </label>
                     <input
                         name="name"
+                        id='name'
                         type="text"
                         placeholder='John doe'
-                        value={username}
+                        value={localUsername}
                         onChange={handleOnChange}
                     />
                     <Button

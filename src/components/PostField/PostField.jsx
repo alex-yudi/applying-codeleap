@@ -1,7 +1,5 @@
 import './PostField.css'
 
-import { useState } from 'react'
-
 import ModalDelete from '../ModalDelete/ModalDelete'
 import ModalEditPost from '../ModalEditPost/ModalEditPost'
 
@@ -13,9 +11,13 @@ import useUser from '../../hooks/useUser'
 
 
 function PostField({ postData }) {
-    const [openTrash, setOpenTrash] = useState(false);
-    const [openModify, setOpenModify] = useState(false);
-    const { userSignup } = useUser()
+    const {
+        userSignup,
+        setButtonActive,
+        setPostSelected,
+        openTrash, setOpenTrash,
+        openModify, setOpenModify
+    } = useUser()
 
     const getTimeFromPost = (datetimePost) => {
         const past = new Date(datetimePost)
@@ -28,6 +30,11 @@ function PostField({ postData }) {
             return `${Math.ceil(time / 60)} hours ago`
         }
         return `${time} minutes ago`
+    }
+
+    const handleOpenModalModify = () => {
+        setOpenModify(true)
+        setPostSelected(postData)
     }
 
     return (
@@ -48,7 +55,7 @@ function PostField({ postData }) {
                             <img
                                 src={pencilImg}
                                 alt="Modify post"
-                                onClick={() => { setOpenModify(true) }}
+                                onClick={handleOpenModalModify}
                             />
                         </div>
                     }
@@ -64,14 +71,8 @@ function PostField({ postData }) {
                 </div>
             </div >
 
-            <ModalDelete
-                openTrash={openTrash}
-                setOpenTrash={setOpenTrash}
-            />
-            <ModalEditPost
-                openModify={openModify}
-                setOpenModify={setOpenModify}
-            />
+            <ModalDelete />
+            <ModalEditPost />
 
         </>
     )

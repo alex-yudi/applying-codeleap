@@ -12,23 +12,21 @@ const style = {
     width: 660,
     height: 146,
     bgcolor: 'background.paper',
-    border: '1px solid #999999',
+    border: '1px transparent #fff',
+    borderRadius: 5,
     boxShadow: 24,
-    p: 4,
+    p: 3,
 };
 
-export default function ModalDelete({ open, setOpen }) {
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+export default function ModalDelete({ openTrash, setOpenTrash }) {
+    const handleClose = () => setOpenTrash(false);
 
     return (
         <div>
             <Modal
                 className='container-modal-delete'
-                open={open}
+                open={openTrash}
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
             >
                 <Box
                     className='delete-message-modal'

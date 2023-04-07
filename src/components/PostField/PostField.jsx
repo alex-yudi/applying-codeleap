@@ -3,6 +3,7 @@ import './PostField.css'
 import { useState } from 'react'
 
 import ModalDelete from '../ModalDelete/ModalDelete'
+import ModalEditPost from '../ModalEditPost/ModalEditPost'
 
 import trashImg from '../../assets/delete-img.png'
 import pencilImg from '../../assets/modify-img.png'
@@ -10,7 +11,8 @@ import pencilImg from '../../assets/modify-img.png'
 
 
 function PostField() {
-    const [open, setOpen] = useState(false);
+    const [openTrash, setOpenTrash] = useState(false);
+    const [openModify, setOpenModify] = useState(false);
 
 
     return (
@@ -24,9 +26,13 @@ function PostField() {
                         <img
                             src={trashImg}
                             alt="Delete post"
-                            onClick={() => { setOpen(true) }}
+                            onClick={() => { setOpenTrash(true) }}
                         />
-                        <img src={pencilImg} alt="Modify post" />
+                        <img
+                            src={pencilImg}
+                            alt="Modify post"
+                            onClick={() => { setOpenModify(true) }}
+                        />
                     </div>
                 </div>
                 <div className='post-body'>
@@ -50,9 +56,14 @@ function PostField() {
             </div >
 
             <ModalDelete
-                open={open}
-                setOpen={setOpen}
+                openTrash={openTrash}
+                setOpenTrash={setOpenTrash}
             />
+            <ModalEditPost
+                openModify={openModify}
+                setOpenModify={setOpenModify}
+            />
+
         </>
     )
 }

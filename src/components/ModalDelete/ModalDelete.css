@@ -18,6 +18,10 @@
     text-align: left;
 }
 
+.delete-message-modal:focus-visible {
+    outline: none;
+}
+
 .container-btn-delete-modal {
     margin-top: 40px;
     align-self: flex-end;

@@ -1,19 +1,8 @@
-.container-post-writer {
-    display: flex;
-    flex-direction: column;
-
-    height: 334px;
-    width: 752px;
-    padding: 24px;
-    margin: 24px;
-
-    border-radius: 16px;
-    border: 1px solid #999999;
-
-    background-color: var(--body-color);
+.modal-edit-post:focus-visible {
+    outline: none;
 }
 
-.container-post-writer>h1 {
+.modal-edit-post>h1 {
     font-size: 22px;
     font-weight: 700;
     line-height: 26px;
@@ -21,7 +10,7 @@
     text-align: left;
 }
 
-.form-post-writer {
+.form-edit-post {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -29,7 +18,7 @@
     margin-top: 24px;
 }
 
-.form-post-writer label {
+.form-edit-post label {
     font-size: 16px;
     font-weight: 400;
     line-height: 19px;
@@ -38,7 +27,7 @@
 }
 
 
-.form-post-writer input:first-of-type {
+.form-edit-post input:first-of-type {
     all: unset;
 
     height: 32px;
@@ -52,7 +41,7 @@
 
 }
 
-.form-post-writer textarea {
+.form-edit-post textarea {
     all: unset;
     display: flex;
     justify-content: flex-start;
@@ -62,7 +51,6 @@
     width: auto;
     padding: 8px 11px;
     margin-top: 8px;
-    margin-bottom: 12px;
 
 
     border: 1px solid #777777;
@@ -73,6 +61,11 @@
 
 
 
-.form-post-writer>button {
+.container-btn-modal-edit-post {
     align-self: flex-end;
+    margin-top: 24px;
+}
+
+.container-btn-modal-edit-post>button:first-child {
+    margin-right: 16px;
 }

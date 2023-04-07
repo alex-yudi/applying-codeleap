@@ -2,6 +2,7 @@
     --btn-input: #7695EC;
     --btn-delete: #FF5151;
     --btn-cancel: #FFFFFF;
+    --btn-save: #47B960;
 
     --font-white: #FFFFFF;
     --font-black: #000000;
@@ -17,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
 
-    width: 100vw;
+    width: 100%;
 
     background-color: var(--background-color);
 }

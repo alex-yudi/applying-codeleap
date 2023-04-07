@@ -15,8 +15,8 @@ function PostField({ postData }) {
         userSignup,
         setButtonActive,
         setPostSelected,
-        openTrash, setOpenTrash,
-        openModify, setOpenModify
+        setOpenTrash,
+        setOpenModify
     } = useUser()
 
     const getTimeFromPost = (datetimePost) => {
@@ -34,6 +34,12 @@ function PostField({ postData }) {
 
     const handleOpenModalModify = () => {
         setOpenModify(true)
+        setButtonActive('active')
+        setPostSelected(postData)
+    }
+    const handleOpenModalDelete = () => {
+        setOpenTrash(true)
+        setButtonActive('active')
         setPostSelected(postData)
     }
 
@@ -50,7 +56,7 @@ function PostField({ postData }) {
                             <img
                                 src={trashImg}
                                 alt="Delete post"
-                                onClick={() => { setOpenTrash(true) }}
+                                onClick={handleOpenModalDelete}
                             />
                             <img
                                 src={pencilImg}

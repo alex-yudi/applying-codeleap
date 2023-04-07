@@ -39,6 +39,7 @@ function PostWriter() {
     const handleSubmit = (event) => {
         event.preventDefault()
         submitNewPost()
+        setButtonActive('disabled')
         getNewListOfPosts()
     }
 

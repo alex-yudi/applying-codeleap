@@ -4,6 +4,9 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '../Button/Button'
 
+import useUser from '../../hooks/useUser';
+import { codeLeap } from '../../connections/codeLeap';
+
 const style = {
     position: 'absolute',
     top: '50%',
@@ -18,8 +21,24 @@ const style = {
     p: 3,
 };
 
-export default function ModalDelete({ openTrash, setOpenTrash }) {
-    const handleClose = () => setOpenTrash(false);
+export default function ModalDelete() {
+    const { openTrash, setOpenTrash, postSelected } = useUser()
+
+    const handleClose = () => {
+        setOpenTrash(false)
+        setButtonActive('disabled')
+    };
+
+    const getNewListOfPosts = async () => {
+        const response = await codeLeap.get('/')
+        setPostsList(response.data.results)
+    }
+
+    const handleDeletePost = async () => {
+        await codeLeap.delete(`/${postSelected.id}/`)
+        handleClose()
+        getNewListOfPosts()
+    }
 
     return (
         <div>
@@ -37,11 +56,13 @@ export default function ModalDelete({ openTrash, setOpenTrash }) {
                     <div className='container-btn-delete-modal'>
                         <Button
                             classType='cancel'
+                            onClick={handleClose}
                         >
                             Cancel
                         </Button>
                         <Button
                             classType='delete'
+                            onClick={handleDeletePost}
                         >
                             Delete
                         </Button>

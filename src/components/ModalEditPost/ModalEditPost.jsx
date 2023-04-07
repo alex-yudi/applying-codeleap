@@ -27,15 +27,11 @@ export default function ModalEditPost() {
 
     const handleClose = () => {
         setOpenModify(false)
+        setButtonActive('disabled')
     };
 
     const handleOnChange = ({ target }) => {
         setPostSelected({ ...postSelected, [target.name]: target.value })
-        if (postSelected.title.length !== 0 && postSelected.content.length !== 0) {
-            return setButtonActive('active')
-        } else {
-            return setButtonActive('disabled')
-        }
     }
 
     const modifyPost = async () => {
@@ -49,16 +45,11 @@ export default function ModalEditPost() {
         }
     }
 
-    const getNewListOfPosts = async () => {
-        const response = await codeLeap.get('/')
-        setPostsList(response.data.results)
-    }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         modifyPost()
-        getNewListOfPosts()
         handleClose()
+        setButtonActive('disabled')
     }
 
     return (
@@ -115,7 +106,6 @@ export default function ModalEditPost() {
                                 Save
                             </Button>
                         </div>
-
                     </form>
                 </Box>
             </Modal>

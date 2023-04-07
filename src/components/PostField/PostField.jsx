@@ -37,6 +37,7 @@ function PostField({ postData }) {
         setButtonActive('active')
         setPostSelected(postData)
     }
+
     const handleOpenModalDelete = () => {
         setOpenTrash(true)
         setButtonActive('active')

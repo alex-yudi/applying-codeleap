@@ -7,7 +7,12 @@ import { useEffect } from 'react';
 
 
 function PostWriter() {
-    const { userSignup, postContent, setPostContent, setButtonActive, setPostsList } = useUser()
+    const {
+        userSignup,
+        postContent, setPostContent,
+        setButtonActive,
+        setPostsList
+    } = useUser()
 
     const handleOnChange = ({ target }) => {
         setPostContent({ ...postContent, [target.name]: target.value })
@@ -20,12 +25,10 @@ function PostWriter() {
 
     const submitNewPost = async () => {
         try {
-            const response = await codeLeap.post('/', {
+            await codeLeap.post('/', {
                 username: userSignup,
                 ...postContent
             })
-            return console.log(response)
-
         } catch (error) {
             return console.log(error)
         }

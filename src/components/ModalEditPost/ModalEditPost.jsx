@@ -23,7 +23,11 @@ const style = {
 };
 
 export default function ModalEditPost() {
-    const { postSelected, setPostSelected, setButtonActive, openModify, setOpenModify, setPostsList } = useUser()
+    const {
+        postSelected, setPostSelected,
+        openModify, setOpenModify,
+        setButtonActive
+    } = useUser()
 
     const handleClose = () => {
         setOpenModify(false)

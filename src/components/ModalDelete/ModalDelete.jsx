@@ -29,15 +29,9 @@ export default function ModalDelete() {
         setButtonActive('disabled')
     };
 
-    const getNewListOfPosts = async () => {
-        const response = await codeLeap.get('/')
-        setPostsList(response.data.results)
-    }
-
     const handleDeletePost = async () => {
         await codeLeap.delete(`/${postSelected.id}/`)
         handleClose()
-        getNewListOfPosts()
     }
 
     return (

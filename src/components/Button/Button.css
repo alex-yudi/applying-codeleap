@@ -14,7 +14,12 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.active:hover {
+    opacity: 0.8;
+}
+
+.disabled {
+    cursor: default;
     opacity: 0.8;
 }
 

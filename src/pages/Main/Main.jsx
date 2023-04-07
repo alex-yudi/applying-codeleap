@@ -3,10 +3,11 @@ import ModalSignup from '../../components/ModalSignup/ModalSignup'
 import Header from '../../components/Header/Header'
 import PostWriter from '../../components/PostWriter/PostWriter'
 import PostField from '../../components/PostField/PostField'
-import { useState } from 'react'
+
+import useUser from '../../hooks/useUser'
 
 function Main() {
-  const [userIsLogged, setUserIsLogged] = useState(false)
+  const { userIsLogged } = useUser()
 
   return (
     <div className="Main">
@@ -14,10 +15,7 @@ function Main() {
         userIsLogged ?
           <>
             <Header />
-            <PostWriter >
-              What's on your mind?
-            </PostWriter >
-
+            <PostWriter />
             <PostField />
           </> :
 

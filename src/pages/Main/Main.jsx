@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { codeLeap } from '../../connections/codeLeap'
 
 function Main() {
-  const { userIsLogged, postsList, setPostsList } = useUser()
+  const { userIsLogged, postsList, setPostsList, setUserSignup } = useUser()
 
   const getCodeLeap = async (pageNumber) => {
     const response = await codeLeap.get('/')
@@ -18,7 +18,13 @@ function Main() {
   }
 
 
+  const setUserLogged = () => {
+    setUserSignup(localStorage.getItem('userLogged'))
+  }
+
+
   useEffect(() => {
+    setUserLogged()
     getCodeLeap()
   }, [])
 
@@ -31,6 +37,7 @@ function Main() {
             <PostWriter />
             {postsList.map((postData) => (
               <PostField
+                key={postData.id}
                 postData={postData}
               />
             ))}

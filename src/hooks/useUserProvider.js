@@ -5,12 +5,14 @@ function useUserProvider() {
     const [userSignup, setUserSignup] = useState('')
     const [buttonActive, setButtonActive] = useState('disabled')
     const [postsList, setPostsList] = useState([])
+    const [postContent, setPostContent] = useState({ title: '', content: '' })
 
     return {
         userIsLogged, setUserIsLogged,
         userSignup, setUserSignup,
         buttonActive, setButtonActive,
-        postsList, setPostsList
+        postsList, setPostsList,
+        postContent, setPostContent
     }
 }
 

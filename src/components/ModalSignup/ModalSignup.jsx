@@ -10,13 +10,13 @@ function ModalSignup() {
         setUserIsLogged
     } = useUser()
 
-
     const handleOnChange = ({ target }) => {
         setUserSignup(target.value)
-        if (userSignup.length === 0) {
+        if (userSignup.length !== 0) {
+            return setButtonActive('active')
+        } else {
             return setButtonActive('disabled')
         }
-        setButtonActive('active')
     }
 
     const handleSubmit = (event) => {

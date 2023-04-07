@@ -8,11 +8,14 @@ import ModalEditPost from '../ModalEditPost/ModalEditPost'
 import trashImg from '../../assets/delete-img.png'
 import pencilImg from '../../assets/modify-img.png'
 
+import useUser from '../../hooks/useUser'
+
 
 
 function PostField({ postData }) {
     const [openTrash, setOpenTrash] = useState(false);
     const [openModify, setOpenModify] = useState(false);
+    const { userSignup } = useUser()
 
     const getTimeFromPost = (datetimePost) => {
         const past = new Date(datetimePost)
@@ -34,18 +37,21 @@ function PostField({ postData }) {
                     <p>
                         {postData.title}
                     </p>
-                    <div className='interactive-icons'>
-                        <img
-                            src={trashImg}
-                            alt="Delete post"
-                            onClick={() => { setOpenTrash(true) }}
-                        />
-                        <img
-                            src={pencilImg}
-                            alt="Modify post"
-                            onClick={() => { setOpenModify(true) }}
-                        />
-                    </div>
+                    {
+                        userSignup === postData.username &&
+                        <div className='interactive-icons'>
+                            <img
+                                src={trashImg}
+                                alt="Delete post"
+                                onClick={() => { setOpenTrash(true) }}
+                            />
+                            <img
+                                src={pencilImg}
+                                alt="Modify post"
+                                onClick={() => { setOpenModify(true) }}
+                            />
+                        </div>
+                    }
                 </div>
                 <div className='post-body'>
                     <div className='post-body-information'>

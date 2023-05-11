@@ -26,7 +26,7 @@ function Main() {
   useEffect(() => {
     setUserLogged()
     getCodeLeap()
-  }, [postsList])
+  }, [])
 
   return (
     <div className="Main">

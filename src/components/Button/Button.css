@@ -11,16 +11,17 @@ button {
     letter-spacing: 0em;
 
     text-align: center;
+}
+
+button:hover {
     cursor: pointer;
+    opacity: 0.95;
+    outline: 1px solid rgb(150, 150, 150);
 }
 
-.active:hover {
-    opacity: 0.8;
-}
-
-.disabled {
+button:disabled {
+    opacity: 0.6;
     cursor: default;
-    opacity: 0.8;
 }
 
 .input {

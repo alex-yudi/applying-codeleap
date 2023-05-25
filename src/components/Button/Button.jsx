@@ -1,13 +1,13 @@
 import './Button.css'
 import useUser from '../../hooks/useUser'
 
-function Button({ children, classType, onClick }) {
-    const { buttonActive } = useUser();
+function Button({ children, classType, onClick, isDisabled }) {
 
     return (
         <button
-            className={`${classType} ${buttonActive}`}
+            className={`${classType}`}
             onClick={onClick}
+            disabled={isDisabled}
         >
             {children}
         </ button >

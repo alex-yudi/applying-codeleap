@@ -59,6 +59,7 @@ function ModalSignup() {
                     />
                     <Button
                         classType='input'
+                        isDisabled={false}
                     >
                         Enter
                     </Button>

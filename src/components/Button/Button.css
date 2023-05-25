@@ -14,15 +14,17 @@ button {
 }
 
 button:hover {
-    cursor: pointer;
     opacity: 0.95;
+    cursor: pointer;
     outline: 1px solid rgb(150, 150, 150);
 }
 
 button:disabled {
     opacity: 0.6;
     cursor: default;
+    outline: 1px solid transparent;
 }
+
 
 .input {
     background-color: var(--btn-input);

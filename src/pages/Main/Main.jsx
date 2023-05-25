@@ -10,39 +10,45 @@ import { useEffect } from 'react'
 import { codeLeap } from '../../connections/codeLeap'
 
 function Main() {
-  const { userIsLogged, postsList, setPostsList, setUsername } = useUser()
+  const { postsList, setPostsList, setUsername } = useUser()
 
   const getCodeLeap = async (pageNumber) => {
     const response = await codeLeap.get('/')
     setPostsList(response.data.results)
   }
 
-
-  const setUserLogged = () => {
-    setUsername(localStorage.getItem('userLogged'))
+  const userIsLogged = () => {
+    const localStorageUsername = localStorage.getItem('userLogged')
+    if (localStorageUsername === null) {
+      return false;
+    }
+    return true;
   }
 
 
   useEffect(() => {
-    setUserLogged()
+    userIsLogged()
+    setUsername(localStorage.getItem('userLogged'))
     getCodeLeap()
   }, [])
 
   return (
     <div className="Main">
       {
-        userIsLogged ?
+        userIsLogged() ?
           <>
             <Header />
             <PostWriter />
-            {postsList.map((postData) => (
-              <PostField
-                key={postData.id}
-                postData={postData}
-              />
-            ))}
-          </> :
-
+            {
+              postsList.map((postData) => (
+                <PostField
+                  key={postData.id}
+                  postData={postData}
+                />
+              ))
+            }
+          </>
+          :
           <ModalSignup />
       }
     </div>

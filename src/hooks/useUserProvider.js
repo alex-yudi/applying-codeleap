@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
 function useUserProvider() {
-    const [userIsLogged, setUserIsLogged] = useState(false)
     const [username, setUsername] = useState('')
-    const [buttonActive, setButtonActive] = useState('disabled')
+    const [buttonActive, setButtonActive] = useState('disabled') // Excluir dps
     const [postsList, setPostsList] = useState([])
     const [postContent, setPostContent] = useState({ title: '', content: '' })
     const [postSelected, setPostSelected] = useState({ title: '', content: '' })
@@ -11,7 +10,6 @@ function useUserProvider() {
     const [openModify, setOpenModify] = useState(false);
 
     return {
-        userIsLogged, setUserIsLogged,
         username, setUsername,
         buttonActive, setButtonActive,
         postsList, setPostsList,

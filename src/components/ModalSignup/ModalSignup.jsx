@@ -7,27 +7,25 @@ import { useEffect, useState } from 'react'
 
 function ModalSignup() {
     const [localUsername, setLocalUsername] = useState('')
+    const [activeButtonSignUp, setActiveButtonSignUp] = useState(true);
     const {
         setUsername,
-        setButtonActive,
         setUserIsLogged
     } = useUser()
 
     const handleOnChange = ({ target }) => {
         setLocalUsername(target.value)
-        if ((target.value).length !== 0) {
-            setButtonActive('active')
+        if (target.value.length === 0) {
+            return setActiveButtonSignUp(true)
         }
+        setActiveButtonSignUp(false)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (localUsername === null) {
-            return
-        }
         localStorage.setItem('userLogged', localUsername)
         setUsername(localUsername)
-        setUserIsLogged(true)
+        // setUserIsLogged(true)
     }
 
     useEffect(() => {
@@ -59,7 +57,7 @@ function ModalSignup() {
                     />
                     <Button
                         classType='input'
-                        isDisabled={false}
+                        isDisabled={activeButtonSignUp}
                     >
                         Enter
                     </Button>
